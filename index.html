@@ -15,23 +15,26 @@
         answer deducts your time by 10 seconds. Your score is the time you have
         left. Good luck!
       </p>
-    </div>
-    <br>
-    <class class="continer">
-      <div id="questionContainer" class="hide">
-        <div id="questions">Question</div>
-        <div id="answerBtn" class="buttonGrid">
-          <button class="button">Answer 1</button>
-          <button class="button">Answer 2</button>
-          <button class="button">Answer 3</button>
-          <button class="button">Answer 4</button>
-        </div>
-      </div>
+      <span id='countdown'>60</span> second<span id='plural'>s</span>
+
       <div class="controls">
         <button id="startBtn" class="startBtn btn">Start</button>
-        <button id="nextBtn" class="nextBtn btn hide">Next</button>
       </div>
-    </class>
+
+      <div id="questions" class="hide">
+        <h2 id="question-title"></h2>
+        <div id="choices" class="choices"></div>
+      </div>
+
+      <div id="end" class="hide">
+        <h3>Your score is <span id="finalScore"></span></h3>
+        <p>
+          Input your name: <input type="text" id="name" />
+          <button id="submit">Submit</button>
+        </p>
+      </div>
+    </div>
+
     <script src="script.js"></script>
     <script src="questions.js"></script>
   </body>
