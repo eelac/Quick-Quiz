@@ -26,7 +26,7 @@ button:hover {
     margin: 1%;
 }
 
-.startBtn, .nextBtn {
+.startBtn {
     font-size: 80%;
     font-weight: bold;
     padding: 5px;
