@@ -26,3 +26,12 @@ button:hover {
     margin: 1%;
 }
 
+.startBtn, .nextBtn {
+    font-size: 80%;
+    font-weight: bold;
+    padding: 5px;
+}
+
+.hide {
+    display: none;
+}
