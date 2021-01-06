@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Coding Quiz</title>
     <link rel="stylesheet" href="style.css" />
-    <script rel="script" src="script.js"></script>
   </head>
   <body>
     <div class="wrapper">
-      <div id="start-page" class="start"></div>
+      <div id="start-page" class="start hide"></div>
       <h1>Coding Quiz</h1>
       <p>
         Answer all the questions about coding. You have 60 seconds. Each wrong
@@ -19,11 +18,20 @@
     </div>
 
     <class class="continer">
-      <div id="questions" class="hide"></div>
+      <div id="questionContainer" class="hide">
+        <div id="questions">Question</div>
+        <div id="answerBtn" class="buttonGrid">
+          <button class="btn">Answer 1</button>
+          <button class="btn">Answer 2</button>
+          <button class="btn">Answer 3</button>
+          <button class="btn">Answer 4</button>
+        </div>
+      </div>
       <div class="controls">
-        <button>Start</button>
-        <button>Next</button>
+        <button id="startBtn" class="startBtn btn">Start</button>
+        <button id="nextBtn" class="nextBtn btn hide">Next</button>
       </div>
     </class>
+    <script rel="script" src="script.js"></script>
   </body>
 </html>
