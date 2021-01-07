@@ -1,22 +1,24 @@
 var currentQuestionIndex = 0;
-var choicesEl = document.getElementById('choices');
+var choicesEl = document.getElementById("choices");
 var questionEl = document.getElementById("questions");
+var time = 60;
+var timerInterval;
+var finalScore = document.getElementById("finalScore");
+
+// Timer
+var timer = document.getElementById("countdown");
+function countdown() {
+  time--;
+  timer.textContent = time + " seconds";
+  if (time === 0) {
+    endGame();
+  }
+}
 
 startBtn.onclick = startGame;
 function startGame() {
-  // Start Timer
-  var seconds = document.getElementById("countdown").textContent;
-  var countdown = setInterval(function () {
-    seconds--;
-    seconds == 1
-      ? (document.getElementById("plural").textContent = "")
-      : (document.getElementById("plural").textContent = "s");
-    document.getElementById("countdown").textContent = seconds;
-    if (seconds <= 0) clearInterval(countdown);
-  }, 1000);
-
   // Hide start button, show questions
-  console.log("Started");
+  timerInterval = setInterval(countdown, 1000);
   startBtn.classList.add("hide");
   questionEl.classList.remove("hide");
   getQuestion();
@@ -28,12 +30,12 @@ function getQuestion() {
   titleEl.textContent = currentQuestion.title;
 
   choicesEl.innerHTML = "";
-  currentQuestion.choices.forEach(function(choice, index) {
+  currentQuestion.choices.forEach(function (choice, index) {
     var choiceNode = document.createElement("button");
     choiceNode.setAttribute("value", choice);
 
     choiceNode.textContent = index + 1 + ". " + choice;
-    
+
     choiceNode.onclick = nextQuestion;
 
     choicesEl.appendChild(choiceNode);
@@ -41,13 +43,26 @@ function getQuestion() {
 }
 
 function nextQuestion() {
-  currentQuestionIndex += 1;
-  getQuestion();
-  if (currentQuestionIndex === 4) {
-    questionEl.classList.add('hide');
-    var end = document.getElementById('end');
-    end.classList.remove('hide');
+  // Penalize time
+  if (this.value !== questions[currentQuestionIndex].answer) {
+    time -= 10;
+    timer.textContent = time + " seconds";
   }
+  currentQuestionIndex++;
+  if (currentQuestionIndex === 5) {
+    endGame();
+  } else {
+    getQuestion();
+  }
+}
+
+function endGame() {
+  questionEl.classList.add("hide");
+  var end = document.getElementById("end");
+  end.classList.remove("hide");
+  timer.classList.add("hide");
+  clearInterval(timerInterval);
+  finalScore.textContent = time;
 }
 
 var questions = [
