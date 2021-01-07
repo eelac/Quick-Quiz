@@ -6,14 +6,16 @@
     <title>Coding Quiz</title>
     <link rel="stylesheet" href="style.css" />
   </head>
+  
   <body>
     <!-- Homepage -->
     <div class="wrapper">
-      <div id="start-page" class="start hide"></div>
+      <div id="startPage" class="start"></div>
       <h1>Coding Quiz</h1>
       <p>
-        Answer all the questions about coding. You have 60 seconds. Your score is the time you have
-        left. Good luck!
+        Answer all the questions about coding. You have 60 seconds. You lose 10
+        seconds on a wrong answer. Your score is the time you have left. Good
+        luck!
       </p>
 
       <!-- Countdown Timer-->
@@ -21,21 +23,20 @@
 
       <!-- Start Button -->
       <div class="controls">
-        <button id="startBtn" class="startBtn btn">Start</button>
-        <element onclick='script.js'></element>
+        <button id="startBtn" class="startBtn">Start</button>
       </div>
 
-      <div id="questions" class="hide">
-        <h2 id="question-title"></h2>
-        <div id="choices" class="choices"></div>
+      <div id='questions' class='hide'>
+        <h2 id='question-title'></h2>
+        <div id='choices' class='choices'></div>
       </div>
-
-      <!-- Endpage -->
+        
+       <!-- End page -->
       <div id="end" class="hide">
         <h3>Your score is <span id="finalScore"></span></h3>
         <p>
           Input your name: <input type="text" id="name" />
-          <button id="submit">Submit</button>
+          <button id="submitBtn" class="submitBtn">Submit</button>
         </p>
       </div>
     </div>
