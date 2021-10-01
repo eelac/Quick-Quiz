@@ -1,4 +1,4 @@
-# Homework4-Quiz
+# Quick-Quiz
 
 Javascript Quiz
 
